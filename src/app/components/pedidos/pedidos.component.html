@@ -1,0 +1,29 @@
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Enviado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pedido of pedidos">
+            <td>
+                <a [routerLink]="['/pedidos', pedido['id']]">
+                    {{ pedido["id"] }}
+                </a>
+            </td>
+            <td>
+                {{ formatDate(pedido["fecha"]) }}
+            </td>
+            <td>
+                {{ pedido["precioTotal"] }}
+            </td>
+            <td>
+                {{ pedido["enviado"] ? "Si" : "No" }}
+            </td>
+        </tr>
+    </tbody>
+</table>
